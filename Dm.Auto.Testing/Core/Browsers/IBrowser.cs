@@ -10,5 +10,7 @@ namespace Dm.Auto.Testing.Core.Browsers
 
         TPage GetCurrent<TPage>() where TPage : class, IPage;
         TPage GoTo<TPage>(string queryParams = null) where TPage : IPage, new();
+
+        void SaveScreenshot();
     }
 }

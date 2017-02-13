@@ -1,4 +1,8 @@
 ﻿using System.Configuration;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Threading;
 using Dm.Auto.Testing.Core.Pages;
 using Dm.Auto.Testing.Core.Utils;
 using OpenQA.Selenium;
@@ -48,6 +52,21 @@ namespace Dm.Auto.Testing.Core.Browsers
             }, 60000);
             currentPage = page;
             return page;
+        }
+
+        private static int screenshotNumber;
+        private static readonly ImageFormat ImageFormat = ImageFormat.Gif;
+
+        public void SaveScreenshot()
+        {
+            var screenshot = ((ITakesScreenshot)WebDriver).GetScreenshot();
+            using (var memoryStream = new MemoryStream(screenshot.AsByteArray))
+            {
+                var image = Image.FromStream(memoryStream);
+                var number = Interlocked.Increment(ref screenshotNumber);
+                var screenshotPath = $"{ConfigurationManager.AppSettings["ScreenshotsDir"]}/Screenshots/{number}.{ImageFormat}";
+                image.Save(screenshotPath, ImageFormat);
+            }
         }
 
         public void Dispose()

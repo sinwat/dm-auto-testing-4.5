@@ -98,6 +98,14 @@
     <Compile Include="Core\Pages\PageLoadException.cs" />
     <Compile Include="Core\Utils\Wait.cs" />
     <Compile Include="Tests\FeatureStepsBase.cs" />
+    <Compile Include="Tests\Login\Login.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\Login\LoginSteps.cs" />
+    <Compile Include="Tests\PageDefinitions\HomePage.cs" />
+    <Compile Include="Tests\PageDefinitions\LoginForm.cs" />
     <Compile Include="Tests\ScenarioAspect.cs" />
     <None Include="App.config" />
     <None Include="packages.config">
@@ -105,6 +113,10 @@
     </None>
     <Compile Include="Configuration\ContainerConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Tests\Login\Login.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Login.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Core\Drivers\chromedriver.exe" />

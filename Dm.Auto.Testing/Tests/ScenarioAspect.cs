@@ -1,4 +1,5 @@
 ﻿using Dm.Auto.Testing.Configuration;
+using Dm.Auto.Testing.Core.Browsers;
 using Dm.Auto.Testing.Core.Browsers.Pool;
 using StructureMap;
 using TechTalk.SpecFlow;
@@ -34,6 +35,23 @@ namespace Dm.Auto.Testing.Tests
             var browserPool = container.GetInstance<IBrowserPool>();
 
             SetItem(browserPool.Get());
+        }
+
+        [AfterScenario]
+        public void AfterScenario()
+        {
+            var browser = GetItem<IBrowser>();
+            if (ScenarioContext.Current.TestError != null)
+            {
+                try
+                {
+                    browser.SaveScreenshot();
+                }
+                // supress any exception because of how Specflow works, it will never free the process,
+                // thus the TeamCity run could never be stopped asl
+                catch { }
+            }
+            browser.WebDriver.Dispose();
         }
 
         public static T GetItem<T>(string key)

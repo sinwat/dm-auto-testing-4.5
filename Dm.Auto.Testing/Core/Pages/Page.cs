@@ -10,7 +10,7 @@ namespace Dm.Auto.Testing.Core.Pages
         protected IWebDriver WebDriver { get; private set; }
         protected IBrowser Browser { get; private set; }
 
-        public virtual string Uri { get; }
+        public abstract string Uri { get; }
         public string Url => WebDriver.Url;
         public bool IsError => false;
         public bool IsLoaded => ((IJavaScriptExecutor)WebDriver).ExecuteScript("return document.readyState;").Equals("complete");

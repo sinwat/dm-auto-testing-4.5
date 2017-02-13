@@ -34,9 +34,9 @@ namespace Dm.Auto.Testing.Core.Elements.Factories
             return new Element(Element, WebDriver);
         }
 
-        public TComponent AsComponent<TComponent>() where TComponent : IComponent
+        public TComponent AsComponent<TComponent>() where TComponent : class, IComponent
         {
-            throw new Exception();
+            return (TComponent)Activator.CreateInstance(typeof(TComponent), Element, WebDriver);
         }
     }
 }

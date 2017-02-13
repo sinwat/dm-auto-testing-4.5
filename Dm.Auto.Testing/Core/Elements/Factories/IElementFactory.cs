@@ -8,6 +8,6 @@ namespace Dm.Auto.Testing.Core.Elements.Factories
         IWebDriver WebDriver { get; }
 
         IElement AsElement();
-        TComponent AsComponent<TComponent>() where TComponent : IComponent;
+        TComponent AsComponent<TComponent>() where TComponent : class, IComponent;
     }
 }

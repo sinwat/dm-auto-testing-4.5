@@ -14,8 +14,9 @@ namespace Dm.Auto.Testing.Core.Drivers
 
         public IWebDriver Create()
         {
-            var chromeDriverService = ChromeDriverService.CreateDefaultService(@"..\..\Drivers");
-            return new ChromeDriver(chromeDriverService, new ChromeOptions { BinaryLocation = ConfigurationManager.AppSettings["ChromeBinaryPath"] });
+            var binaryLocation = ConfigurationManager.AppSettings["ChromeBinaryPath"];
+            var chromeDriverService = ChromeDriverService.CreateDefaultService(binaryLocation);
+            return new ChromeDriver(chromeDriverService);
         }
     }
 }
