@@ -4,7 +4,7 @@ using Dm.Auto.Testing.Core.Browsers.Pool;
 using StructureMap;
 using TechTalk.SpecFlow;
 
-namespace Dm.Auto.Testing.Tests
+namespace Dm.Auto.Testing.Testing
 {
     [Binding]
     public class ScenarioAspect

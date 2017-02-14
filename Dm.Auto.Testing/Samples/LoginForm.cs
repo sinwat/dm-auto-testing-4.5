@@ -3,7 +3,7 @@ using Dm.Auto.Testing.Core.Elements.BaseComponents;
 using Dm.Auto.Testing.Core.Extensions;
 using OpenQA.Selenium;
 
-namespace Dm.Auto.Testing.Tests.PageDefinitions
+namespace Dm.Auto.Testing.Samples
 {
     public class LoginForm : Component
     {

@@ -97,23 +97,26 @@
     <Compile Include="Core\Pages\Page.cs" />
     <Compile Include="Core\Pages\PageLoadException.cs" />
     <Compile Include="Core\Utils\Wait.cs" />
-    <Compile Include="Tests\FeatureStepsBase.cs" />
-    <Compile Include="Tests\Login\Login.feature.cs">
+    <Compile Include="Samples\Login.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.feature</DependentUpon>
     </Compile>
-    <Compile Include="Tests\Login\LoginSteps.cs" />
-    <Compile Include="Tests\PageDefinitions\HomePage.cs" />
-    <Compile Include="Tests\PageDefinitions\LoginForm.cs" />
-    <Compile Include="Tests\ScenarioAspect.cs" />
+    <Compile Include="Samples\HomePage.cs" />
+    <Compile Include="Samples\LoginForm.cs" />
+    <Compile Include="Samples\LoginService.cs" />
+    <Compile Include="Samples\LoginSteps.cs" />
+    <Compile Include="Testing\BaseTestingService.cs" />
+    <Compile Include="Testing\FeatureStepsBase.cs" />
+    <Compile Include="Testing\ITestingService.cs" />
+    <Compile Include="Testing\ScenarioAspect.cs" />
     <None Include="App.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
     <Compile Include="Configuration\ContainerConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="Tests\Login\Login.feature">
+    <None Include="Samples\Login.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Login.feature.cs</LastGenOutput>
     </None>

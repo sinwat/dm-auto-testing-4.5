@@ -2,20 +2,27 @@
 using StructureMap;
 using TechTalk.SpecFlow;
 
-namespace Dm.Auto.Testing.Tests
+namespace Dm.Auto.Testing.Testing
 {
     [Binding]
     public abstract class FeatureStepsBase
     {
-        public static void AppendContainerInstance<T>() where T : class
+        public static T AppendContainerInstance<T>() where T : class, ITestingService
         {
             if (ScenarioAspect.HasItem<T>())
             {
-                return;
+                return ScenarioAspect.GetItem<T>();
             }
 
-            var instance = SafeContainer.GetInstance<T>();
+            var container = SafeContainer;
+            container.Configure(c =>
+            {
+                c.For<IBrowser>().Use(t => Browser);
+            });
+            var instance = container.GetInstance<T>();
             ScenarioAspect.SetItem(instance);
+            container.Release(instance);
+            return instance;
         }
 
         protected static IBrowser Browser => ScenarioAspect.GetItem<IBrowser>();
