@@ -5,47 +5,47 @@ namespace Dm.Auto.Testing.Core.Elements
 {
     public class EmptyElement : IElement
     {
-        private ISearchable searchable;
+        private readonly ElementNotFoundException exception;
 
         public EmptyElement(By searchCriteria, ISearchable searchable)
         {
-            this.searchable = searchable;
+            exception = new ElementNotFoundException(searchCriteria, searchable);
         }
 
-        public bool Exists { get; }
-        public string TagName { get; }
-        public bool Visible { get; }
-        public int Height { get; }
-        public int Width { get; }
-        public string Text { get; }
+        public bool Exists => false;
+        public string TagName { get { throw exception.Append("get tag name."); } }
+        public bool Visible { get { throw exception.Append("know if element is visible."); } }
+        public int Height { get { throw exception.Append("get element height."); } }
+        public int Width { get { throw exception.Append("get element width."); } }
+        public string Text { get { throw exception.Append("get element inner text."); } }
         public void Click()
         {
-            throw new System.NotImplementedException();
+            throw exception.Append("click element");
         }
 
         public void ScrollTo()
         {
-            throw new System.NotImplementedException();
+            throw exception.Append("scroll to element");
         }
 
         public void HoverMouse()
         {
-            throw new System.NotImplementedException();
+            throw exception.Append("move mouse over element");
         }
 
         public void HoverClick()
         {
-            throw new System.NotImplementedException();
+            throw exception.Append("move mouse over element and click");
         }
 
         public string GetAttribute(string name)
         {
-            throw new System.NotImplementedException();
+            throw exception.Append($"get element {name} attribute value");
         }
 
         public bool HasAttribute(string name)
         {
-            throw new System.NotImplementedException();
+            throw exception.Append($"know if element has {name} attribute");
         }
     }
 }
