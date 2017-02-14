@@ -17,7 +17,9 @@ namespace Dm.Auto.Testing.Samples
         [When("I click login button")]
         public void WhenIClickLoginLink()
         {
+            Browser.PrepareForAjaxRequest();
             Browser.GetCurrent<HomePage>().LoginLink.Click();
+            Browser.WaitForPendingAjaxRequests();
         }
 
         [Then("the login form should appear on the screen")]

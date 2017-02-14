@@ -50,6 +50,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,6 +66,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Browsers\Ajax\AjaxRequest.cs" />
+    <Compile Include="Core\Browsers\Ajax\AjaxRequestFailedException.cs" />
+    <Compile Include="Core\Browsers\Ajax\AjaxRequestState.cs" />
     <Compile Include="Core\Browsers\Browser.cs" />
     <Compile Include="Core\Browsers\BrowserType.cs" />
     <Compile Include="Core\Browsers\Factories\BrowserFactory.cs" />
