@@ -9,8 +9,9 @@ namespace Dm.Auto.Testing.Core.Browsers
         IWebDriver WebDriver { get; }
 
         TPage GetCurrent<TPage>() where TPage : class, IPage;
-        TPage GoTo<TPage>(string queryParams = null) where TPage : IPage, new();
-        void WaitForSubmit();
+        TPage GetCurrentUnsafe<TPage>() where TPage : class, IPage, new();
+        TPage GoTo<TPage>(string queryParams = null) where TPage : class, IPage, new();
+        TPage WaitForSubmit<TPage>() where TPage : class, IPage, new();
 
         void PrepareForAjaxRequest();
         void WaitForPendingAjaxRequests();

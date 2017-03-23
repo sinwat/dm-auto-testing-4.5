@@ -1,0 +1,6 @@
+D:\test\dm-auto-testing-4.5\Dm.Auto.Testing.Samples\bin\Release\Dm.Auto.Testing.Samples.dll.config
+D:\test\dm-auto-testing-4.5\Dm.Auto.Testing.Samples\bin\Release\Dm.Auto.Testing.Samples.dll
+D:\test\dm-auto-testing-4.5\Dm.Auto.Testing.Samples\bin\Release\Dm.Auto.Testing.Samples.pdb
+D:\test\dm-auto-testing-4.5\Dm.Auto.Testing.Samples\obj\Release\Dm.Auto.Testing.Samples.csprojResolveAssemblyReference.cache
+D:\test\dm-auto-testing-4.5\Dm.Auto.Testing.Samples\obj\Release\Dm.Auto.Testing.Samples.dll
+D:\test\dm-auto-testing-4.5\Dm.Auto.Testing.Samples\obj\Release\Dm.Auto.Testing.Samples.pdb

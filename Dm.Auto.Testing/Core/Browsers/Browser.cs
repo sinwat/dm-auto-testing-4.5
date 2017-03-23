@@ -42,7 +42,16 @@ namespace Dm.Auto.Testing.Core.Browsers
             return castedCurrentPage;
         }
 
-        public TPage GoTo<TPage>(string queryParams = null) where TPage : IPage, new()
+        public TPage GetCurrentUnsafe<TPage>() where TPage : class, IPage, new()
+        {
+            var page = new TPage();
+            page.Initialize(WebDriver, this);
+
+            currentPage = page;
+            return page;
+        }
+
+        public TPage GoTo<TPage>(string queryParams = null) where TPage : class, IPage, new()
         {
             var page = new TPage();
             page.Initialize(WebDriver, this);
@@ -59,14 +68,17 @@ namespace Dm.Auto.Testing.Core.Browsers
             currentPage = page;
             return page;
         }
-        public void WaitForSubmit()
+
+        public TPage WaitForSubmit<TPage>() where TPage : class, IPage, new()
         {
-            var jsExecutor = (IJavaScriptExecutor) WebDriver;
+            var jsExecutor = (IJavaScriptExecutor)WebDriver;
             jsExecutor.ExecuteScript("window.__seleniumSubmitFlag__ = true;");
             Wait.UntilChanged("true", () => jsExecutor.ExecuteScript("window.__seleniumSubmitFlag__"));
             Wait.For(2000);
-        }
 
+            return GetCurrentUnsafe<TPage>();
+        }
+        
         public void PrepareForAjaxRequest()
         {
             WaitForAjaxRequests();

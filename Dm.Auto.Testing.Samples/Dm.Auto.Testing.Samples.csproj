@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E2A8B52A-3FE1-4A59-B87F-C83AD94EA891}</ProjectGuid>
+    <ProjectGuid>{FDDD6E46-B293-42EF-BE91-024E2B139659}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dm.Auto.Testing</RootNamespace>
-    <AssemblyName>Dm.Auto.Testing</AssemblyName>
+    <RootNamespace>Dm.Auto.Testing.Samples</RootNamespace>
+    <AssemblyName>Dm.Auto.Testing.Samples</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -51,10 +51,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,54 +69,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Browsers\Ajax\AjaxRequest.cs" />
-    <Compile Include="Core\Browsers\Ajax\AjaxRequestFailedException.cs" />
-    <Compile Include="Core\Browsers\Ajax\AjaxRequestState.cs" />
-    <Compile Include="Core\Browsers\Browser.cs" />
-    <Compile Include="Core\Browsers\BrowserType.cs" />
-    <Compile Include="Core\Browsers\Factories\BrowserFactory.cs" />
-    <Compile Include="Core\Browsers\Factories\IBrowserFactory.cs" />
-    <Compile Include="Core\Browsers\IBrowser.cs" />
-    <Compile Include="Core\Browsers\Pool\BrowserPool.cs" />
-    <Compile Include="Core\Browsers\Pool\IBrowserPool.cs" />
-    <Compile Include="Core\Drivers\CompositeWebDriverFactory.cs" />
-    <Compile Include="Core\Drivers\ICompositeWebDriverFactory.cs" />
-    <Compile Include="Core\Drivers\IWebDriverFactory.cs" />
-    <Compile Include="Core\Drivers\WebDriverFactoryException.cs" />
-    <Compile Include="Core\Drivers\WebkitWebDriverFactory.cs" />
-    <Compile Include="Core\Elements\BaseComponents\ITextInputElement.cs" />
-    <Compile Include="Core\Elements\BaseComponents\TextInputElement.cs" />
-    <Compile Include="Core\Elements\Component.cs" />
-    <Compile Include="Core\Elements\Element.cs" />
-    <Compile Include="Core\Elements\ElementNotFoundException.cs" />
-    <Compile Include="Core\Elements\EmptyElement.cs" />
-    <Compile Include="Core\Elements\Factories\ElementFactory.cs" />
-    <Compile Include="Core\Elements\Factories\IElementFactory.cs" />
-    <Compile Include="Core\Elements\IComponent.cs" />
-    <Compile Include="Core\Elements\IElement.cs" />
-    <Compile Include="Core\Elements\Searchers\ElementSearcher.cs" />
-    <Compile Include="Core\Elements\Searchers\IElementFinder.cs" />
-    <Compile Include="Core\Elements\Searchers\IElementGetter.cs" />
-    <Compile Include="Core\Elements\Searchers\ISearchable.cs" />
-    <Compile Include="Core\Extensions\ElementFactoryExtensions.cs" />
-    <Compile Include="Core\Pages\CurrentPageException.cs" />
-    <Compile Include="Core\Pages\IPage.cs" />
-    <Compile Include="Core\Pages\Page.cs" />
-    <Compile Include="Core\Pages\PageLoadException.cs" />
-    <Compile Include="Core\Utils\Wait.cs" />
-    <Compile Include="Testing\BaseTestingService.cs" />
-    <Compile Include="Testing\FeatureStepsBase.cs" />
-    <Compile Include="Testing\ITestingService.cs" />
-    <Compile Include="Testing\ScenarioAspect.cs" />
-    <None Include="App.config" />
-    <Compile Include="Configuration\ContainerConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Core\Drivers\chromedriver.exe" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
