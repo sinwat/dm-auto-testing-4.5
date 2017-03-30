@@ -10,7 +10,7 @@ namespace Dm.Auto.Testing.Core.Browsers
 
         TPage GetCurrent<TPage>() where TPage : class, IPage;
         TPage GetCurrentUnsafe<TPage>() where TPage : class, IPage, new();
-        TPage GoTo<TPage>(string queryParams = null) where TPage : class, IPage, new();
+        TPage GoTo<TPage>() where TPage : class, IPage, new();
         TPage WaitForSubmit<TPage>() where TPage : class, IPage, new();
 
         void WaitForElementToDisplay(string css, int timeout=10000);
