@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -9,6 +10,7 @@ using Dm.Auto.Testing.Core.Browsers.Ajax;
 using Dm.Auto.Testing.Core.Pages;
 using Dm.Auto.Testing.Core.Utils;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace Dm.Auto.Testing.Core.Browsers
 {
@@ -74,11 +76,47 @@ namespace Dm.Auto.Testing.Core.Browsers
             var jsExecutor = (IJavaScriptExecutor)WebDriver;
             jsExecutor.ExecuteScript("window.__seleniumSubmitFlag__ = true;");
             Wait.UntilChanged("true", () => jsExecutor.ExecuteScript("window.__seleniumSubmitFlag__"));
-            Wait.For(2000);
+            Wait.For(10000);
 
             return GetCurrentUnsafe<TPage>();
         }
-        
+
+        public void WaitForElementToDisplay(string css, int timeout = 10000)
+        {
+            try
+            {
+                var wait = new WebDriverWait(WebDriver, TimeSpan.FromMilliseconds(timeout));
+                wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(css)));
+            }
+            catch (TimeoutException)
+            {
+            }
+        }
+
+        public void WaitForElementToBeClickable(string css, int timeout = 10000)
+        {
+            try
+            {
+                var wait = new WebDriverWait(WebDriver, TimeSpan.FromMilliseconds(timeout));
+                wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector(css)));
+            }
+            catch (TimeoutException)
+            {
+            }
+        }
+
+        public void WaitForElementToDissapear(string css, int timeout = 10000)
+        {
+            try
+            {
+                var wait = new WebDriverWait(WebDriver, TimeSpan.FromMilliseconds(timeout));
+                wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(css)));
+            }
+            catch (TimeoutException)
+            {
+            }
+        }
+
         public void PrepareForAjaxRequest()
         {
             WaitForAjaxRequests();
@@ -178,7 +216,7 @@ namespace Dm.Auto.Testing.Core.Browsers
 
         public void Dispose()
         {
-            WebDriver.Dispose();
+            WebDriver.Quit();
         }
     }
 }

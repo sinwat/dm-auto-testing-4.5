@@ -13,6 +13,11 @@ namespace Dm.Auto.Testing.Core.Browsers
         TPage GoTo<TPage>(string queryParams = null) where TPage : class, IPage, new();
         TPage WaitForSubmit<TPage>() where TPage : class, IPage, new();
 
+        void WaitForElementToDisplay(string css, int timeout=10000);
+        void WaitForElementToDissapear(string css, int timeout = 10000);
+        void WaitForElementToBeClickable(string css, int timeout = 10000);
+
+
         void PrepareForAjaxRequest();
         void WaitForPendingAjaxRequests();
         string ExecuteScript(string script);
