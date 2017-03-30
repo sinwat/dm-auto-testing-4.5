@@ -59,6 +59,11 @@ namespace Dm.Auto.Testing.Core.Elements.Searchers
             return GetElement(By.Name(name));
         }
 
+        IElementFactory IElementGetter.ByClassName(string className)
+        {
+            return GetElement(By.ClassName(className));
+        }
+
         IElementFactory IElementGetter.ByCss(string css)
         {
             return GetElement(By.CssSelector(css));
@@ -93,6 +98,11 @@ namespace Dm.Auto.Testing.Core.Elements.Searchers
         IElementFactory[] IElementFinder.ByXPath(string xpath)
         {
             return FindElements(By.XPath(xpath));
+        }
+
+        IElementFactory[] IElementFinder.ByClassName(string className)
+        {
+            return FindElements(By.ClassName(className));
         }
     }
 }

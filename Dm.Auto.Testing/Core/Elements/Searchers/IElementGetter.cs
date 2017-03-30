@@ -9,5 +9,6 @@ namespace Dm.Auto.Testing.Core.Elements.Searchers
         IElementFactory ByCss(string css);
         IElementFactory ByXPath(string xpath);
         IElementFactory ByContent(string content);
+        IElementFactory ByClassName(string className);
     }
 }
