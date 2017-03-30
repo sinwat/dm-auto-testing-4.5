@@ -162,7 +162,7 @@ namespace Dm.Auto.Testing.Core.Browsers
         }
 
         private static int screenshotNumber;
-        private static readonly ImageFormat ImageFormat = ImageFormat.Gif;
+        private static readonly ImageFormat ImageFormat = ImageFormat.Png;
 
         public void SaveScreenshot()
         {
@@ -171,7 +171,7 @@ namespace Dm.Auto.Testing.Core.Browsers
             {
                 var image = Image.FromStream(memoryStream);
                 var number = Interlocked.Increment(ref screenshotNumber);
-                var screenshotPath = $"{ConfigurationManager.AppSettings["ScreenshotsDir"]}/Screenshots/{number}.{ImageFormat}";
+                var screenshotPath = $"{ConfigurationManager.AppSettings["ScreenshotsDir"]}\\Screenshots\\{number}.{ImageFormat}";
                 image.Save(screenshotPath, ImageFormat);
             }
         }
