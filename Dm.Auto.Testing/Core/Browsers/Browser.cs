@@ -51,11 +51,11 @@ namespace Dm.Auto.Testing.Core.Browsers
             return page;
         }
 
-        public TPage GoTo<TPage>(string queryParams = null) where TPage : class, IPage, new()
+        public TPage GoTo<TPage>() where TPage : class, IPage, new()
         {
             var page = new TPage();
             page.Initialize(WebDriver, this);
-            WebDriver.Url = $"{baseUrl}/{page.Uri}/{queryParams}";
+            WebDriver.Url = $"{baseUrl}/{page.Uri}";
 
             Wait.For(() =>
             {
