@@ -14,8 +14,19 @@ namespace Dm.Auto.Testing.Core.Elements.BaseComponents
             set
             {
                 Click();
+                WebElement.Clear();
                 WebElement.SendKeys(value);
             }
+        }
+
+        public void Clear()
+        {
+            WebElement.Clear();
+        }
+
+        public void Submit()
+        {
+            WebElement.Submit();
         }
     }
 }
