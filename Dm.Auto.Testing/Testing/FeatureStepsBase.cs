@@ -9,11 +9,6 @@ namespace Dm.Auto.Testing.Testing
     {
         public static T AppendContainerInstance<T>() where T : class, ITestingService
         {
-            if (ScenarioAspect.HasItem<T>())
-            {
-                return ScenarioAspect.GetItem<T>();
-            }
-
             var container = SafeContainer;
             container.Configure(c =>
             {
@@ -25,7 +20,7 @@ namespace Dm.Auto.Testing.Testing
             return instance;
         }
 
-        protected static IBrowser Browser => ScenarioAspect.GetItem<IBrowser>();
+        protected static IBrowser Browser => ScenarioAspect.GetItem<IBrowser>(ScenarioContext.Current);
 
         private static Container SafeContainer
         {
