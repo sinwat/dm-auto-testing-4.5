@@ -12,7 +12,7 @@ namespace Dm.Auto.Testing.Core.Elements
         public Component(IWebElement element, IWebDriver webDriver, IBrowser browser) : base(element, webDriver)
         {
             Browser = browser;
-            elementSearcher = new ElementSearcher(element, this, webDriver);
+            elementSearcher = new ElementSearcher(element, this, webDriver, browser);
         }
 
         public IElementGetter Get => elementSearcher;

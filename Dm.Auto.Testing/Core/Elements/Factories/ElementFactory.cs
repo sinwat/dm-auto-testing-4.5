@@ -1,6 +1,7 @@
 using System;
 using Dm.Auto.Testing.Core.Elements.Searchers;
 using OpenQA.Selenium;
+using Dm.Auto.Testing.Core.Browsers;
 
 namespace Dm.Auto.Testing.Core.Elements.Factories
 {
@@ -8,12 +9,14 @@ namespace Dm.Auto.Testing.Core.Elements.Factories
     {
         private readonly By searchCriteria;
         private readonly ISearchable searchable;
+        private readonly IBrowser Browser;
 
-        public ElementFactory(IWebElement element, IWebDriver webDriver, ISearchable searchable)
+        public ElementFactory(IWebElement element, IWebDriver webDriver, ISearchable searchable, IBrowser browser)
         {
             Element = element;
             this.searchable = searchable;
             WebDriver = webDriver;
+            Browser = browser;
         }
 
         public ElementFactory(By searchCriteria, ISearchable searchable)
@@ -36,7 +39,7 @@ namespace Dm.Auto.Testing.Core.Elements.Factories
 
         public TComponent AsComponent<TComponent>() where TComponent : class, IComponent
         {
-            return (TComponent)Activator.CreateInstance(typeof(TComponent), Element, WebDriver);
+            return (TComponent)Activator.CreateInstance(typeof(TComponent), Element, WebDriver, Browser);
         }
     }
 }

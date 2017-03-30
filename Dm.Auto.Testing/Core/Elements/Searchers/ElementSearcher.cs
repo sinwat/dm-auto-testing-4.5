@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Dm.Auto.Testing.Core.Browsers;
 using Dm.Auto.Testing.Core.Elements.Factories;
 using OpenQA.Selenium;
 
@@ -9,16 +10,19 @@ namespace Dm.Auto.Testing.Core.Elements.Searchers
         private readonly ISearchContext searchContext;
         private readonly ISearchable searchable;
         private readonly IWebDriver webDriver;
+        private readonly IBrowser browser;
 
         public ElementSearcher(
             ISearchContext searchContext,
             ISearchable searchable,
-            IWebDriver webDriver
+            IWebDriver webDriver,
+            IBrowser browser
             )
         {
             this.searchContext = searchContext;
             this.searchable = searchable;
             this.webDriver = webDriver;
+            this.browser = browser;
         }
 
         private IElementFactory GetElement(By searchCriteria)
@@ -28,7 +32,7 @@ namespace Dm.Auto.Testing.Core.Elements.Searchers
             {
                 throw new ElementNotFoundException(searchCriteria, searchable);
             }
-            return new ElementFactory(element, webDriver, searchable);
+            return new ElementFactory(element, webDriver, searchable, browser);
         }
 
         private IElementFactory FindElement(By searchCriteria)
@@ -38,13 +42,13 @@ namespace Dm.Auto.Testing.Core.Elements.Searchers
             {
                 return new ElementFactory(searchCriteria, searchable);
             }
-            return new ElementFactory(element, webDriver, searchable);
+            return new ElementFactory(element, webDriver, searchable, browser);
         }
 
         private IElementFactory[] FindElements(By searchCriteria)
         {
             return searchContext.FindElements(searchCriteria)
-                .Select(e => new ElementFactory(e, webDriver, searchable))
+                .Select(e => new ElementFactory(e, webDriver, searchable, browser))
                 .Cast<IElementFactory>()
                 .ToArray();
         }

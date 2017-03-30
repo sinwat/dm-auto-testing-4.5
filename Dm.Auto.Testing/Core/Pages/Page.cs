@@ -18,7 +18,7 @@ namespace Dm.Auto.Testing.Core.Pages
         {
             WebDriver = webDriver;
             Browser = browser;
-            elementSearcher = new ElementSearcher(webDriver, this, webDriver);
+            elementSearcher = new ElementSearcher(webDriver, this, webDriver, browser);
         }
 
         public IElementGetter Get => elementSearcher;
