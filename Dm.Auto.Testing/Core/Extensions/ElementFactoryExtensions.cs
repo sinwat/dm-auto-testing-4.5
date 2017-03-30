@@ -9,5 +9,10 @@ namespace Dm.Auto.Testing.Core.Extensions
         {
             return new TextInputElement(factory.Element, factory.WebDriver);
         }
+
+        public static ISelector AsSelector(this IElementFactory factory)
+        {
+            return new Selector(factory.Element, factory.WebDriver);
+        }
     }
 }

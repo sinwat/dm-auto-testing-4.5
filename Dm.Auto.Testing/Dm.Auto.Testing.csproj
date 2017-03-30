@@ -86,7 +86,9 @@
     <Compile Include="Core\Drivers\IWebDriverFactory.cs" />
     <Compile Include="Core\Drivers\WebDriverFactoryException.cs" />
     <Compile Include="Core\Drivers\WebkitWebDriverFactory.cs" />
+    <Compile Include="Core\Elements\BaseComponents\ISelector.cs" />
     <Compile Include="Core\Elements\BaseComponents\ITextInputElement.cs" />
+    <Compile Include="Core\Elements\BaseComponents\Selector.cs" />
     <Compile Include="Core\Elements\BaseComponents\TextInputElement.cs" />
     <Compile Include="Core\Elements\Component.cs" />
     <Compile Include="Core\Elements\Element.cs" />
